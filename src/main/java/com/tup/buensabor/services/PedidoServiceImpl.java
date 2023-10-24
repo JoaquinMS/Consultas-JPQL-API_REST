@@ -8,8 +8,10 @@ import com.tup.buensabor.repositories.DetallePedidoRepository;
 import com.tup.buensabor.repositories.DomicilioRepository;
 import com.tup.buensabor.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> {
+@Service
+public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
