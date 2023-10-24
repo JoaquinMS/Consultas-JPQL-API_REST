@@ -19,3 +19,4 @@ public class RubroArticuloImpl extends BaseServiceImpl<RubroArticulo, Long> impl
         this.rubroarticuloRepository = rubroarticuloRepository;
     }
 }
+

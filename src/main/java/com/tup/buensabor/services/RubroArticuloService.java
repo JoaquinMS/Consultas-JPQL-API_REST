@@ -11,3 +11,4 @@ public interface RubroArticuloService extends BaseService<RubroArticulo, Long>{
 
 
 }
+
