@@ -1,17 +1,18 @@
 package com.tup.buensabor.services;
 
-import com.tup.buensabor.entities.DetallePedido;
-import com.tup.buensabor.entities.Domicilio;
-import com.tup.buensabor.entities.Pedido;
+import com.tup.buensabor.entities.*;
 import com.tup.buensabor.repositories.BaseRepository;
-import com.tup.buensabor.repositories.DetallePedidoRepository;
-import com.tup.buensabor.repositories.DomicilioRepository;
 import com.tup.buensabor.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements PedidoService {
+
     @Autowired
     private PedidoRepository pedidoRepository;
 
@@ -21,7 +22,12 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         this.pedidoRepository = pedidoRepository;
 
     }
+    public List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
+        try {
+            List<ArticuloInsumo> articuloInsumos = pedidoRepository.findProductosMasPedidosEnRangoFechas(fechaInicio,fechaFin);
+            return articuloInsumos;
+        }catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
-
-
-//implements PedidoService
