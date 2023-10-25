@@ -4,7 +4,11 @@ import com.tup.buensabor.entities.Cliente;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class ClienteServiceImpl extends BaseServiceImpl<Cliente, Long>{
@@ -15,6 +19,15 @@ public class ClienteServiceImpl extends BaseServiceImpl<Cliente, Long>{
         super(baseRepository);
         this.clienteRepository = clienteRepository;
     }
-
-
+    public List<Cliente> findClientesConMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
+        try {
+            List<Cliente> clientes = clienteRepository.findClientesConMasPedidosEnRangoFechas(fechaInicio,fechaFin);
+            return clientes;
+        }catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
+
+
+
