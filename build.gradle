@@ -30,7 +30,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+jar {
+	manifest {
+		attributes 'BuensaborApplication': 'com.tup.buensabor.BuensaborApplication' // Reemplaza 'tu.paquete.MainClass' con la clase principal de tu aplicación
+	}
+}
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
