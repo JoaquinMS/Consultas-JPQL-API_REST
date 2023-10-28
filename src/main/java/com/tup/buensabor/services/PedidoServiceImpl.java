@@ -22,11 +22,12 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         this.pedidoRepository = pedidoRepository;
 
     }
-    public List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
+
+    public List<Pedido> findPedidosByClienteAndFecha(Long clienteId, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
         try {
-            List<ArticuloInsumo> articuloInsumos = pedidoRepository.findProductosMasPedidosEnRangoFechas(fechaInicio,fechaFin);
-            return articuloInsumos;
-        }catch(Exception e){
+            List<Pedido> pedidos = pedidoRepository.findPedidosByClienteAndFecha(clienteId, fechaInicio, fechaFin);
+            return pedidos;
+        } catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }

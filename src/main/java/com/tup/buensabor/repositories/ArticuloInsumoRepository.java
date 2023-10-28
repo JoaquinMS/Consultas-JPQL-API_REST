@@ -11,6 +11,18 @@ import java.util.List;
 
 @Repository
 public interface ArticuloInsumoRepository extends BaseRepository<ArticuloInsumo, Long> {
+
+    @Query("SELECT dp.articuloInsumo, SUM(dp.cantidad) as totalPedidos " +
+            "FROM DetallePedido dp " +
+            "WHERE dp.pedido.fechaPedido BETWEEN :fechaInicio AND :fechaFin " +
+            "GROUP BY dp.articuloInsumo " +
+            "ORDER BY totalPedidos DESC")
+
+    List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas(
+            @Param("fechaInicio") Date fechaInicio,
+            @Param("fechaFin") Date fechaFin
+    );
+
     @Query("SELECT a FROM ArticuloInsumo a " +
             "WHERE (:nombre IS NULL OR a.denominacion LIKE %:nombre%) " +
             "AND (:rubroNombre IS NULL OR a.rubroArticulo.denominacion = :rubroNombre)")

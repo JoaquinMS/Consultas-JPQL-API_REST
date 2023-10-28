@@ -1,9 +1,7 @@
 package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.Cliente;
-import com.tup.buensabor.repositories.ClienteRepository;
 import com.tup.buensabor.services.ClienteServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +14,23 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/clientes")
 public class ClienteController extends BaseControllerImpl<Cliente, ClienteServiceImpl> {
-    @Autowired
-    private ClienteRepository clienteRepository;
 
-    @GetMapping("/clientes-mas-pedidos")
-    public List<Cliente> obtenerClientesConMasPedidosEnRangoFechas(
-            @RequestParam("fechaInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaInicio,
-            @RequestParam("fechaFin") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFin
+    @GetMapping("/obtenerClientesConMasPedidos")
+    public ResponseEntity<?> obtenerClientesConMasPedidosEnRangoFechas(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin
     ) {
-        return clienteRepository.findClientesConMasPedidosEnRangoFechas(fechaInicio, fechaFin);
+        try {
+            List<Cliente> clientes = servicio.findClientesConMasPedidosEnRangoFechas(fechaInicio, fechaFin);
+            if (clientes.isEmpty()){
+                return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron clientes.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(clientes);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+
     }
 }

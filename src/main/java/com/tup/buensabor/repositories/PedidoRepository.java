@@ -11,15 +11,13 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepository extends BaseRepository<Pedido, Long>{
-    @Query("SELECT dp.articuloInsumo, SUM(dp.cantidad) as totalPedidos " +
-            "FROM DetallePedido dp " +
-            "WHERE dp.pedido.fechaPedido BETWEEN :fechaInicio AND :fechaFin " +
-            "GROUP BY dp.articuloInsumo " +
-            "ORDER BY totalPedidos DESC")
 
-    List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas(
+    @Query("SELECT p FROM Pedido p WHERE p.cliente.id = :clienteId AND p.fechaPedido BETWEEN :fechaInicio AND :fechaFin")
+    List<Pedido> findPedidosByClienteAndFecha(
+            @Param("clienteId") Long clienteId,
             @Param("fechaInicio") Date fechaInicio,
-            @Param("fechaFin") Date fechaFin
-    );
+            @Param("fechaFin") Date fechaFin);
+
+
 }
 

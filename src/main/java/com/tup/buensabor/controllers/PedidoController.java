@@ -1,13 +1,11 @@
 package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
-import com.tup.buensabor.entities.Cliente;
 import com.tup.buensabor.entities.Pedido;
-import com.tup.buensabor.repositories.PedidoRepository;
-import com.tup.buensabor.services.ClienteServiceImpl;
 import com.tup.buensabor.services.PedidoServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -16,16 +14,24 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/pedidos")
-public class PedidoController extends BaseControllerImpl<Cliente, ClienteServiceImpl> {
+public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceImpl> {
 
-    @Autowired
-    private PedidoRepository pedidoRepository;
-
-    @GetMapping("/productos-mas-pedidos")
-    public List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas(
-            @RequestParam("fechaInicio") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaInicio,
-            @RequestParam("fechaFin") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFin
-    ) {
-        return pedidoRepository.findProductosMasPedidosEnRangoFechas(fechaInicio,fechaFin);
+    @GetMapping("/obtenerPedidosPorClienteYFechas")
+    public ResponseEntity<?> obtenerPedidosPorClienteYFechas(
+            @RequestParam Long clienteId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) {
+        try {
+            List<Pedido> pedidos = servicio.findPedidosByClienteAndFecha(clienteId, fechaInicio, fechaFin);
+            if (pedidos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron pedidos.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidos);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
+
 }
