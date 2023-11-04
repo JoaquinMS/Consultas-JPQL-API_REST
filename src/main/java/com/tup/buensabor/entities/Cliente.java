@@ -26,11 +26,8 @@ public class Cliente extends Base {
     private String email;
 
     @OneToOne(optional = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-
-
 
     @Column(name = "fecha_alta")
     @Temporal(TemporalType.TIMESTAMP)
