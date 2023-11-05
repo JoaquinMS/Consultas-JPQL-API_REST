@@ -17,6 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @Builder
+
 public class UnidadMedida extends Base {
 
     @NotNull

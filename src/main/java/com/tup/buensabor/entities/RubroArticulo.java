@@ -1,10 +1,8 @@
 package com.tup.buensabor.entities;
 
 import jakarta.persistence.*;
-
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
-
 import java.util.Date;
 import java.util.List;
 
@@ -14,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-public class RubroArticulo extends Base {
 
+public class RubroArticulo extends Base {
 
     @ManyToOne()
     @JoinColumn(name = "id_rubro_padre")
@@ -26,7 +24,6 @@ public class RubroArticulo extends Base {
 
     @NotNull
     private String denominacion;
-
     @NotNull
     @Column(name = "fecha_alta")
     @Temporal(TemporalType.TIMESTAMP)

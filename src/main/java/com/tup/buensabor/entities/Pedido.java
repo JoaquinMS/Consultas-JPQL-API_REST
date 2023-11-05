@@ -4,10 +4,8 @@ import com.tup.buensabor.enums.EstadoPedido;
 import com.tup.buensabor.enums.FormaPago;
 import com.tup.buensabor.enums.TipoEnvio;
 import jakarta.persistence.*;
-
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @Builder
+
 public class Pedido extends Base {
 
     @NotNull
@@ -72,7 +71,6 @@ public class Pedido extends Base {
     @Column(name = "fecha_baja")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaBaja;
-
 
     @NotNull
     @OneToOne

@@ -3,7 +3,6 @@ package com.tup.buensabor.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
-
 import java.util.Date;
 
 
@@ -13,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Builder
+
 public class MPDatos extends Base {
 
     @Column(name = "mp_payment_id")
@@ -39,5 +39,4 @@ public class MPDatos extends Base {
     @Column(name = "fecha_baja")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaBaja;
-
 }

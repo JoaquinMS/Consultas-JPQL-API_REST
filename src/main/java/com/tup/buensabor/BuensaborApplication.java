@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Bean;
 import com.tup.buensabor.repositories.*;
 import com.tup.buensabor.entities.*;
 import com.tup.buensabor.enums.*;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 @SpringBootApplication
+
 public class BuensaborApplication {
 
 	@Autowired
@@ -54,18 +54,28 @@ public class BuensaborApplication {
 	@Autowired
 	MPDatosRepository mpDatosRepository;
 
+	@Autowired
+	RubroArticuloManufacturadoRepository rubroArticuloManufacturadoRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(
 				BuensaborApplication.class, args);
 	}
 
 	@Bean
-	CommandLineRunner init(ArticuloInsumoRepository articuloInsumoRepository, ArticuloManufacturadoRepository articuloManufacturadoRepository, ClienteRepository clienteRepository, DetalleArticuloManufacturadoRepository detalleArticuloManufacturadoRepository, DetalleFacturaRepository detalleFacturaRepository, DetallePedidoRepository detallePedidoRepository, DomicilioRepository domicilioRepository, FacturaRepository facturaRepository, PedidoRepository pedidoRepository, RubroArticuloRepository rubroArticuloRepository, UnidadMedidaRepository unidadMedidaRepository, UsuarioRepository usuarioRepository, MPDatosRepository mpDatosRepository) {
+	CommandLineRunner init(ArticuloInsumoRepository articuloInsumoRepository, ArticuloManufacturadoRepository articuloManufacturadoRepository, ClienteRepository clienteRepository, DetalleArticuloManufacturadoRepository detalleArticuloManufacturadoRepository, DetalleFacturaRepository detalleFacturaRepository, DetallePedidoRepository detallePedidoRepository, DomicilioRepository domicilioRepository, FacturaRepository facturaRepository, PedidoRepository pedidoRepository, RubroArticuloRepository rubroArticuloRepository, UnidadMedidaRepository unidadMedidaRepository, UsuarioRepository usuarioRepository, MPDatosRepository mpDatosRepository, RubroArticuloManufacturadoRepository rubroArticuloManufacturadoRepository) {
 		return args -> {
-			System.out.println("-----------------ESTOY FUNCIONANDO---------");
+			System.out.println("/-/-/-/-/---ESTOY FUNCIONANDO---/-/-/-/-/");
 
 
 
+
+			RubroArticuloManufacturado rubroArticuloManufacturado = RubroArticuloManufacturado.builder()
+					.denominacion("Pizzas")
+					.fechaAlta(new Date(123,11,5))
+					.build();
+
+			rubroArticuloManufacturadoRepository.save(rubroArticuloManufacturado);
 
 			RubroArticulo rubroArticulo = RubroArticulo.builder()
 					.denominacion("Alimentos")
@@ -89,6 +99,7 @@ public class BuensaborApplication {
 					.mpPaymentType("mercado_credito")
 					.fechaAlta(new Date(123,11,5))
 					.build();
+
 			mpDatosRepository.save(mpDatos);
 
 			MPDatos mpDatos2 = MPDatos.builder()
@@ -98,9 +109,8 @@ public class BuensaborApplication {
 					.mpPaymentType("mercado_credito")
 					.fechaAlta(new Date(123,11,5))
 					.build();
+
 			mpDatosRepository.save(mpDatos2);
-
-
 
 
 
@@ -112,6 +122,7 @@ public class BuensaborApplication {
 					.email("pepemujica@gmail.com")
 					.fechaAlta(new Date(123,11,5))
 					.build();
+
 			Cliente cliente2 = Cliente.builder()
 					.nombre("kevin")
 					.apellido("navarro")
@@ -140,7 +151,6 @@ public class BuensaborApplication {
 					.fechaAlta(new Date(123,11,5))
 					.build();
 
-
 			Usuario usuario = Usuario.builder()
 					.auth0Id("1234567890")
 					.username("Agustyn")
@@ -156,8 +166,6 @@ public class BuensaborApplication {
 
 			cliente2.setUsuario(usuario2);
 
-
-
 			Factura factura = Factura.builder()
 					.fechaFacturacion(new Date(123, 11, 4))
 					.formaPago(FormaPago.MERCADO_PAGO)
@@ -172,9 +180,6 @@ public class BuensaborApplication {
 					.totalVenta(BigDecimal.valueOf(12500))
 					.fechaAlta(new Date(123,11,5))
  					.build();
-
-
-
 
 			Pedido pedido = Pedido.builder()
 					.fechaPedido(new Date())
@@ -244,6 +249,7 @@ public class BuensaborApplication {
 					.costo(BigDecimal.valueOf(1000))
 					.urlImagen("pizzaespecial.png")
 					.fechaAlta(new Date(123,11,5))
+					.rubroArticuloManufacturado(rubroArticuloManufacturado)
 					.build();
 
 			articuloManufacturadoRepository.save(articuloManufacturado);
@@ -257,6 +263,7 @@ public class BuensaborApplication {
 					.costo(BigDecimal.valueOf(2500))
 					.urlImagen("hamburguesa.png")
 					.fechaAlta(new Date(123,11,5))
+					.rubroArticuloManufacturado(rubroArticuloManufacturado)
 					.build();
 			articuloManufacturadoRepository.save(articuloManufacturado1);
 
@@ -269,6 +276,7 @@ public class BuensaborApplication {
 					.costo(BigDecimal.valueOf(4500))
 					.urlImagen("hamburguesa_triple.png")
 					.fechaAlta(new Date(123,11,5))
+					.rubroArticuloManufacturado(rubroArticuloManufacturado)
 					.build();
 			articuloManufacturadoRepository.save(articuloManufacturado2);
 
@@ -293,7 +301,6 @@ public class BuensaborApplication {
 					.subtotal(BigDecimal.valueOf(13000))
 					.subtotalCosto(BigDecimal.valueOf(6500))
 					.pedido(pedido)
-					.articuloInsumo(articuloInsumo)
 					.articuloManufacturado(articuloManufacturado)
 					.build();
 
@@ -302,7 +309,6 @@ public class BuensaborApplication {
 					.subtotal(BigDecimal.valueOf(13000))
 					.subtotalCosto(BigDecimal.valueOf(6500))
 					.pedido(pedido2)
-					.articuloInsumo(articuloInsumo2)
 					.articuloManufacturado(articuloManufacturado1)
 					.build();
 
@@ -311,7 +317,6 @@ public class BuensaborApplication {
 					.subtotal(BigDecimal.valueOf(23000))
 					.subtotalCosto(BigDecimal.valueOf(11500))
 					.pedido(pedido2)
-					.articuloInsumo(articuloInsumo2)
 					.articuloManufacturado(articuloManufacturado2)
 					.build();
 
@@ -319,14 +324,12 @@ public class BuensaborApplication {
 			DetalleFactura detalleFactura = DetalleFactura.builder()
 					.cantidad(5)
 					.subtotal(BigDecimal.valueOf(13000))
-					.articuloInsumo(articuloInsumo)
 					.articuloManufacturado(articuloManufacturado)
 					.factura(factura)
 					.build();
 			DetalleFactura detalleFactura2 = DetalleFactura.builder()
 					.cantidad(2)
 					.subtotal(BigDecimal.valueOf(13000))
-					.articuloInsumo(articuloInsumo2)
 					.articuloManufacturado(articuloManufacturado1)
 					.factura(factura2)
 					.build();
@@ -334,7 +337,6 @@ public class BuensaborApplication {
 			DetalleFactura detalleFactura3 = DetalleFactura.builder()
 					.cantidad(3)
 					.subtotal(BigDecimal.valueOf(23000))
-					.articuloInsumo(articuloInsumo2)
 					.articuloManufacturado(articuloManufacturado2)
 					.factura(factura2)
 					.build();
