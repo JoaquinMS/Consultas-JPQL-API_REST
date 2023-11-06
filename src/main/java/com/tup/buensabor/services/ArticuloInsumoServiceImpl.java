@@ -20,4 +20,26 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
         super(baseRepository);
         this.articuloInsumoRepository = articuloInsumoRepository;
     }
+
+    @Override
+    public List<ArticuloInsumo> findProductosMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
+        try {
+            List<ArticuloInsumo> articuloInsumos = articuloInsumoRepository.findProductosMasPedidosEnRangoFechas(fechaInicio,fechaFin);
+            return articuloInsumos;
+        }catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<ArticuloInsumo> buscarPorNombreYRubro(String nombre, String rubroNombre) throws Exception {
+        try {
+            List<ArticuloInsumo>  articuloInsumos =   articuloInsumoRepository.buscarPorNombreYRubro(nombre, rubroNombre);
+            return articuloInsumos;
+        }catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
 }

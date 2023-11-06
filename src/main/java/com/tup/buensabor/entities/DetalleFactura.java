@@ -23,6 +23,10 @@ public class DetalleFactura extends Base {
     private BigDecimal subtotal;
 
     @ManyToOne()
+    @JoinColumn(name = "id_articulo_insumo")
+    private ArticuloInsumo articuloInsumo;
+
+    @ManyToOne()
     @JoinColumn(name = "id_articulo_manufacturado")
     private ArticuloManufacturado articuloManufacturado;
 

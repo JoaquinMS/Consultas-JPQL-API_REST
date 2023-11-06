@@ -17,13 +17,8 @@ import java.util.Date;
 @Builder
 public class ArticuloManufacturado extends Base {
 
-    @NonNull
-    private String denominacion;
-
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "rubro_denominacion")
-    private RubroArticuloManufacturado rubroArticuloManufacturado;
+    private String denominacion;
 
     @NotNull
     @Column(length = 1000)

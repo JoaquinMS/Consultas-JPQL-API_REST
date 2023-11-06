@@ -14,7 +14,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @Builder
-
 public class ArticuloInsumo extends Base {
 
     @NotNull
