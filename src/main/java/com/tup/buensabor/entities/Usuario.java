@@ -1,4 +1,5 @@
 package com.tup.buensabor.entities;
+import com.tup.buensabor.enums.Rol;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +19,11 @@ import java.util.Date;
 @Table(name = "usuario")
 @Builder
 public class Usuario extends Base {
+
+    @NotNull
+    @Column(name = "rol")
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 
     @NotNull
     @Column(name = "auth0_id", nullable = false, unique = true)

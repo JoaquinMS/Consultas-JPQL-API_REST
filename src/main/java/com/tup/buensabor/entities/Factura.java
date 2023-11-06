@@ -23,6 +23,8 @@ public class Factura extends Base {
     private Date fechaFacturacion;
 
     @NotNull
+    @Column(name = "forma_pago")
+    @Enumerated(EnumType.STRING)
     private FormaPago formaPago;
 
     @NotNull

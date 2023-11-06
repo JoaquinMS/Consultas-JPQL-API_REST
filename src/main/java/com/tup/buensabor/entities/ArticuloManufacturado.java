@@ -18,6 +18,11 @@ import java.util.Date;
 public class ArticuloManufacturado extends Base {
 
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "rubro_denominacion")
+    private RubroArticuloManufacturado rubroArticuloManufacturado;
+
+    @NotNull
     private String denominacion;
 
     @NotNull
