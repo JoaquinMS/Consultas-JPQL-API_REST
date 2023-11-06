@@ -61,8 +61,7 @@ public class BuensaborApplication {
 
 	@Bean
 	CommandLineRunner init(ArticuloInsumoRepository articuloInsumoRepository, ArticuloManufacturadoRepository articuloManufacturadoRepository, ClienteRepository clienteRepository, DetalleArticuloManufacturadoRepository detalleArticuloManufacturadoRepository, DetalleFacturaRepository detalleFacturaRepository, DetallePedidoRepository detallePedidoRepository, DomicilioRepository domicilioRepository, FacturaRepository facturaRepository, PedidoRepository pedidoRepository, RubroArticuloRepository rubroArticuloRepository, UnidadMedidaRepository unidadMedidaRepository, UsuarioRepository usuarioRepository, MPDatosRepository mpDatosRepository) {
-		return args -> {
-			System.out.println("-----------------ESTOY FUNCIONANDO---------");
+		return args -> { System.out.println("/-/-/-/--- * ESTOY FUNCIONANDO * ---/-/-/-/");
 
 
 
