@@ -20,8 +20,17 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     @Autowired
     private ArticuloInsumoServiceImpl articuloInsumoServiceImpl;
 
+
+
+    //----------Consultas H25----------//
+    @GetMapping("/cercastockminimo")
+    public List<ArticuloInsumo> getArticulosInsumoCercaStockMinimo() {
+        return articuloInsumoServiceImpl.findArticulosInsumoCercaStockMinimo();
+    }
     @GetMapping("/bajostockminimo")
     public List<ArticuloInsumo> getArticulosInsumoBajoStockMinimo() {
         return articuloInsumoServiceImpl.findArticulosInsumoBajoStockMinimo();
     }
+
+    //----------Consultas H----------//
 }

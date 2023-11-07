@@ -16,10 +16,18 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
     @Autowired
     private ArticuloInsumoRepository articuloInsumoRepository;
 
+
+    //----------Consultas H25----------//
     public List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo() {
         return articuloInsumoRepository.findArticulosInsumoBajoStockMinimo();
     }
+    @Override
+    public List<ArticuloInsumo> findArticulosInsumoCercaStockMinimo() {
+        return articuloInsumoRepository.findArticulosInsumoCercaStockMinimo();
+    }
 
+
+    //----------Constructor----------//
     public ArticuloInsumoServiceImpl(BaseRepository<ArticuloInsumo, Long> baseRepository, ArticuloInsumoRepository articuloInsumoRepository) {
         super(baseRepository);
         this.articuloInsumoRepository = articuloInsumoRepository;
