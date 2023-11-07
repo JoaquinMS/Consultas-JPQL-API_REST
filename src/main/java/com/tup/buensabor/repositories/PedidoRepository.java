@@ -2,6 +2,7 @@ package com.tup.buensabor.repositories;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
 import com.tup.buensabor.entities.Pedido;
+import com.tup.buensabor.enums.EstadoPedido;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -27,9 +28,13 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
     @Query("SELECT p FROM Pedido p")
     List<Pedido> obtenerPedidosConEstado();
 
-    //----------Consultas H17----------//
+    //----------Consultas H14----------//
     @Query("SELECT p FROM Pedido p")
     List<Pedido> obtenerTodosLosPedidos();
+
+    //---------------------------------//
+    @Query("SELECT p FROM Pedido p WHERE p.estado = :estado")
+    List<Pedido> obtenerPedidosPorEstado(@Param("estado") EstadoPedido estado);
 
 }
 

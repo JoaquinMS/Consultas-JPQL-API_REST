@@ -1,6 +1,7 @@
 package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.*;
+import com.tup.buensabor.enums.EstadoPedido;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
 
     }
 
-    //----------Consultas H17----------//
+    //----------Consultas H14----------//
 
     @Override
     public List<Pedido> obtenerTodosLosPedidos() throws Exception {
@@ -58,5 +59,17 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
+
+    //--------------------------------//
+    @Override
+    public List<Pedido> obtenerPedidosPorEstado(EstadoPedido estado) throws Exception {
+        try {
+            List<Pedido> pedidos = pedidoRepository.obtenerPedidosPorEstado(estado); // Llama a la consulta en el repositorio
+            return pedidos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
 
 }

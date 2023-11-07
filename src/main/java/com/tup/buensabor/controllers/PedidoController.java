@@ -2,6 +2,7 @@ package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
 import com.tup.buensabor.entities.Pedido;
+import com.tup.buensabor.enums.EstadoPedido;
 import com.tup.buensabor.services.PedidoServiceImpl;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -66,6 +67,24 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+
+    //------------------------------//
+    @GetMapping("/pedidoPorEstado")
+    public ResponseEntity<?> obtenerPedidosPorEstado(@RequestParam("estado") EstadoPedido estado) {
+        try {
+            List<Pedido> pedidos = servicio.obtenerPedidosPorEstado(estado); // Utiliza el método de servicio adecuado
+            if (pedidos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron pedidos con el estado " + estado + ".\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidos);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
+
 
 
 }

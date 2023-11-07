@@ -1,6 +1,7 @@
 package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.*;
+import com.tup.buensabor.enums.EstadoPedido;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -15,6 +16,9 @@ public interface PedidoService extends BaseService<Pedido, Long>{
 
     //----------Consultas H14----------//
     public List<Pedido> obtenerTodosLosPedidos() throws Exception;
+
+    //--------------------------------//
+    List<Pedido> obtenerPedidosPorEstado(EstadoPedido estado) throws Exception;
 
 
 }
