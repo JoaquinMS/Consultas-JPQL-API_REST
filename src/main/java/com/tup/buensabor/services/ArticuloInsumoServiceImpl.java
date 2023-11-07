@@ -16,7 +16,6 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
     @Autowired
     private ArticuloInsumoRepository articuloInsumoRepository;
 
-    @Override
     public List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo() {
         return articuloInsumoRepository.findArticulosInsumoBajoStockMinimo();
     }

@@ -24,5 +24,4 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     public List<ArticuloInsumo> getArticulosInsumoBajoStockMinimo() {
         return articuloInsumoServiceImpl.findArticulosInsumoBajoStockMinimo();
     }
-
 }
