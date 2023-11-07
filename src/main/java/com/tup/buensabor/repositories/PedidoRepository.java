@@ -18,6 +18,12 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
             @Param("fechaInicio") Date fechaInicio,
             @Param("fechaFin") Date fechaFin);
 
+    //----------Consultas H17----------//
+    @Query(
+            "SELECT p FROM Pedido p WHERE p.estado = 'PREPARACION'"
+    )
+    List<Pedido> getAllPedidosPreparacion();
+
 
 }
 

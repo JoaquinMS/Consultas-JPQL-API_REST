@@ -31,4 +31,16 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
+
+
+    //----------Consultas H17----------//
+    @Override
+    public List<Pedido> getAllPedidosPreparacion() throws Exception {
+        try {
+            List<Pedido> pedidos = pedidoRepository.getAllPedidosPreparacion();
+            return pedidos;
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }

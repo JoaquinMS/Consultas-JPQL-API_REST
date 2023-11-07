@@ -34,4 +34,21 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
+
+    //----------Consultas H17----------//
+    @GetMapping("/getAllPedidosPreparacion")
+    public ResponseEntity<?> getAllPedidosPreparacion() {
+        try {
+            List<Pedido> pedidos = servicio.getAllPedidosPreparacion();
+            if (pedidos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron pedidos.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidos);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
 }

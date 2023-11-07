@@ -10,5 +10,8 @@ public interface PedidoService extends BaseService<Pedido, Long>{
 
     List<Pedido> findPedidosByClienteAndFecha(Long clienteId, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception;
 
+    //----------Consultas H17----------//
+    List<Pedido> getAllPedidosPreparacion() throws Exception;
+
 }
 
