@@ -277,6 +277,7 @@ public class BuensaborApplication {
 			Usuario usuario = Usuario.builder()
 					.auth0Id("1234567890")
 					.username("pepeAdmin")
+					.contraseña("pasword123")
 					.rol(Rol.ADMINISTRADOR)
 					.fechaAlta(new Date(123, 11, 5))
 					.build();
@@ -286,6 +287,7 @@ public class BuensaborApplication {
 			Usuario usuario2 = Usuario.builder()
 					.auth0Id("12345670")
 					.username("kevinsx")
+					.contraseña("asd1232")
 					.rol(Rol.CLIENTE)
 					.fechaAlta(new Date(123, 6, 5))
 					.build();
@@ -297,6 +299,7 @@ public class BuensaborApplication {
 			Usuario usuario3 = Usuario.builder()
 					.auth0Id("455412")
 					.username("luis.buensabor")
+					.contraseña("contraseña123")
 					.rol(Rol.EMPLEADO)
 					.fechaAlta(new Date(123, 6, 5))
 					.build();
@@ -306,6 +309,7 @@ public class BuensaborApplication {
 			Usuario usuario4 = Usuario.builder()
 					.auth0Id("763434")
 					.username("albert_buensabor")
+					.contraseña("mypassword")
 					.rol(Rol.EMPLEADO)
 					.fechaAlta(new Date(123, 6, 5))
 					.build();
@@ -315,6 +319,7 @@ public class BuensaborApplication {
 			Usuario usuario5 = Usuario.builder()
 					.auth0Id("56767123")
 					.username("juanpi_231")
+					.contraseña("welcome123")
 					.rol(Rol.CLIENTE)
 					.fechaAlta(new Date(123, 6, 5))
 					.build();

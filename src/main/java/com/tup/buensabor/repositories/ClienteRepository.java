@@ -18,5 +18,13 @@ public interface ClienteRepository extends BaseRepository<Cliente, Long>{
             @Param("fechaInicio") Date fechaInicio,
             @Param("fechaFin") Date fechaFin
     );
+
+
+
+
+
+
+
+
 }
 
