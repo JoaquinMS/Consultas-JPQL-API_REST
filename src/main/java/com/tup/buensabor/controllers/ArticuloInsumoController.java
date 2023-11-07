@@ -14,8 +14,15 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/articulosinsumo")
+@RequestMapping(path = "api/articulosinsumo")
 public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo, ArticuloInsumoServiceImpl> {
 
+    @Autowired
+    private ArticuloInsumoServiceImpl articuloInsumoServiceImpl;
+
+    @GetMapping("/bajostockminimo")
+    public List<ArticuloInsumo> getArticulosInsumoBajoStockMinimo() {
+        return articuloInsumoServiceImpl.findArticulosInsumoBajoStockMinimo();
+    }
 
 }

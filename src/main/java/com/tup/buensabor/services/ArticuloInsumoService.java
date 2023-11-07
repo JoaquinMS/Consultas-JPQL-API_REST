@@ -7,6 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface ArticuloInsumoService extends BaseService<ArticuloInsumo,Long>{
-
+    List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo();
 
 }
