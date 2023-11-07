@@ -22,14 +22,13 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
             @Param("fechaFin") Date fechaFin
     );
 
-
-    @Query("SELECT a FROM ArticuloManufacturado a " +
-            "WHERE (:nombre IS NULL OR a.denominacion LIKE %:nombre%) " +
-            "AND (:rubroNombre IS NULL OR a.rubroArticuloManufacturado.denominacion = :rubroNombre)")
-    List<ArticuloManufacturado> buscarPorNombreYRubro(
-            @Param("nombre") String nombre,
-            @Param("rubroNombre") String rubroNombre
-    );
+   //Historia 9
+   @Query("SELECT a FROM ArticuloManufacturado a " +
+           "WHERE :nombre IS NULL OR a.denominacion LIKE %:nombre% " +
+           "GROUP BY a.rubroArticuloManufacturado, a.id")
+   List<ArticuloManufacturado> buscarProductoPorNombre(
+           @Param("nombre") String nombre
+   );
 
 
 

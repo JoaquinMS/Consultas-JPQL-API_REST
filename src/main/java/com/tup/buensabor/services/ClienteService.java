@@ -9,5 +9,8 @@ import java.util.List;
 public interface ClienteService extends BaseService<Cliente, Long>{
 
         List<Cliente> findClientesConMasPedidosEnRangoFechas ( @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception;
+
+        Cliente findClientePorCorreoYContraseña (String email, String password) throws Exception;
+
 }
 

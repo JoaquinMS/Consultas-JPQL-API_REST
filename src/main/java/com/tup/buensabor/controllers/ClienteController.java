@@ -33,4 +33,24 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
         }
 
     }
+
+    @GetMapping("/obtenerClientePorCorreoYContraseña")
+    public ResponseEntity<?> obtenerClientesConMasPedidosEnRangoFechas(
+            @RequestParam String email,
+            @RequestParam String password
+    ) {
+        try {
+            Cliente cliente = servicio.findClientePorCorreoYContraseña(email, password);
+            if (cliente == null){
+                return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No existe cliente asociado a ese correo y contraseña.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(cliente);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+
+    }
+
 }

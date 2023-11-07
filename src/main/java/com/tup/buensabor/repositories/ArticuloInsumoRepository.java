@@ -15,8 +15,6 @@ import java.util.List;
 public interface ArticuloInsumoRepository extends BaseRepository<ArticuloInsumo, Long> {
 
 
-
-
         //----------Consultas H25----------//
         @Query("SELECT a FROM ArticuloInsumo a WHERE a.stockActual < a.stockMinimo")
         List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo();

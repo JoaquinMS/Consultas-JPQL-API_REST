@@ -27,6 +27,16 @@ public class ClienteServiceImpl extends BaseServiceImpl<Cliente, Long>{
             throw new Exception(e.getMessage());
         }
     }
+
+    public Cliente findClientePorCorreoYContraseña (String email, String password) throws Exception {
+        try {
+            Cliente cliente = clienteRepository.findClientePorCorreoYContraseña(email, password);
+            return cliente;
+        }catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
 }
 
 
