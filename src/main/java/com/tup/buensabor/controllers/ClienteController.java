@@ -30,6 +30,7 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
+
         }
 
     }

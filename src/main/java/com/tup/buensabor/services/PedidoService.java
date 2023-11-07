@@ -13,5 +13,9 @@ public interface PedidoService extends BaseService<Pedido, Long>{
     //----------Consultas H17----------//
     List<Pedido> getAllPedidosPreparacion() throws Exception;
 
+    //----------Consultas H14----------//
+    public List<Pedido> obtenerTodosLosPedidos() throws Exception;
+
+
 }
 

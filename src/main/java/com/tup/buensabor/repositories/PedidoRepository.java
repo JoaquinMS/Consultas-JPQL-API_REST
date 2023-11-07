@@ -24,6 +24,12 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
     )
     List<Pedido> getAllPedidosPreparacion();
 
+    @Query("SELECT p FROM Pedido p")
+    List<Pedido> obtenerPedidosConEstado();
+
+    //----------Consultas H17----------//
+    @Query("SELECT p FROM Pedido p")
+    List<Pedido> obtenerTodosLosPedidos();
 
 }
 
