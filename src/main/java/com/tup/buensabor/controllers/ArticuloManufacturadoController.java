@@ -1,6 +1,7 @@
 package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.ArticuloManufacturado;
+import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.services.ArticuloManufacturadoServiceImpl;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,6 @@ import java.util.List;
 
 public class ArticuloManufacturadoController extends BaseControllerImpl<ArticuloManufacturado, ArticuloManufacturadoServiceImpl>{
 
-
-    //Historia 26
     @GetMapping("/obtenerProductosMasPedidos")
     public ResponseEntity<?> obtenerProductosMasPedidosEnRangoFechas(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
@@ -36,8 +35,23 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
         }
     }
 
+    //Historia 11
+    @GetMapping("/consultarSubtotalCantidad")
+    public ResponseEntity<?> consultarDenominacionPrecioSubtotalCantidad() {
+        try {
+            List<Object[]> detallePedido = servicio.consultarDenominacionPrecioSubtotalCantidad();
+            if (detallePedido.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron articulos.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(detallePedido);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
 
-    //Historia 26
+    }
+
     @GetMapping("/obtenerProductosPorNombreYRubro")
     public ResponseEntity<?> buscarProductosPorNombreYRubro(
             @RequestParam(value = "nombre", required = false) String nombre,
@@ -56,8 +70,6 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
         }
     }
 
-
-    //Historia 9
     @GetMapping("/obtenerProductosPorNombre")
     public ResponseEntity<?> buscarProductoPorNombre(
             @RequestParam(value = "nombre", required = false) String nombre

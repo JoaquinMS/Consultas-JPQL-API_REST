@@ -1,6 +1,7 @@
 package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.ArticuloManufacturado;
+import com.tup.buensabor.entities.DetallePedido;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -12,4 +13,6 @@ public interface ArticuloManufacturadoService extends BaseService<ArticuloManufa
     List<ArticuloManufacturado> buscarPorNombreYRubro (String nombre, String rubroNombre) throws Exception;
     List<ArticuloManufacturado> buscarProductoPorNombre (String nombre) throws Exception;
 
+    //Historia 11
+    List<Object[]> consultarDenominacionPrecioSubtotalCantidad() throws Exception;
 }

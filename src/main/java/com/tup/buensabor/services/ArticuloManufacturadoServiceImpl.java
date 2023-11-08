@@ -1,6 +1,7 @@
 package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.ArticuloManufacturado;
+import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.repositories.ArticuloManufacturadoRepository;
 import com.tup.buensabor.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
-
 import java.util.List;
 
 @Service
@@ -43,6 +42,15 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
+    //Historia 11
+    public List<Object[]> consultarDenominacionPrecioSubtotalCantidad() throws Exception{
+        try {
+            List<Object[]> detallePedido = articuloManufacturadoRepository.consultarDenominacionPrecioSubtotalCantidad();
+            return detallePedido;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
     @Override
     public List<ArticuloManufacturado> buscarProductoPorNombre(String nombre) throws Exception {
         try {
