@@ -12,7 +12,7 @@ public interface ArticuloManufacturadoService extends BaseService<ArticuloManufa
     List<ArticuloManufacturado> findProductosMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception;
     List<ArticuloManufacturado> buscarPorNombreYRubro (String nombre, String rubroNombre) throws Exception;
     List<ArticuloManufacturado> buscarProductoPorNombre (String nombre) throws Exception;
-
+    List<ArticuloManufacturado> mostrarProductosPaginaPrincipal() throws Exception;
     //Historia 11
     List<Object[]> consultarDenominacionPrecioSubtotalCantidad() throws Exception;
 }

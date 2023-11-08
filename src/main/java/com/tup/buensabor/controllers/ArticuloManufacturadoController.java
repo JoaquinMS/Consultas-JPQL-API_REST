@@ -88,4 +88,20 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+
+    @GetMapping("/mostrarProductosPaginaPrincipal")
+    public ResponseEntity<?> mostrarProductosPaginaPrincipal() {
+        try {
+            List<ArticuloManufacturado> articuloManufacturado = servicio.mostrarProductosPaginaPrincipal();
+            if(articuloManufacturado.isEmpty()){
+                return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron articulos.\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(articuloManufacturado);
+            }
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
 }
