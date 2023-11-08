@@ -17,6 +17,8 @@ import java.util.List;
 
 public class ArticuloManufacturadoController extends BaseControllerImpl<ArticuloManufacturado, ArticuloManufacturadoServiceImpl>{
 
+
+    //Historia 26
     @GetMapping("/obtenerProductosMasPedidos")
     public ResponseEntity<?> obtenerProductosMasPedidosEnRangoFechas(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,

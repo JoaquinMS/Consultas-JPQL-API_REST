@@ -14,6 +14,8 @@ import java.util.List;
 public interface ArticuloManufacturadoRepository extends BaseRepository<ArticuloManufacturado, Long>{
 
 
+
+    //Historia 26 (Busca el el producto(ArticuloManufacturado) mas pedido en un rango de fecha)
    @Query("SELECT dp.articuloManufacturado, SUM(dp.cantidad) as totalPedidos " +
             "FROM DetallePedido dp " +
             "WHERE dp.pedido.fechaPedido BETWEEN :fechaInicio AND :fechaFin " +
@@ -24,6 +26,8 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
             @Param("fechaFin") Date fechaFin
     );
 
+
+   //Historia 26 (Busca los articulos diferenciados por rubro, trayendo los dos de la BD)
     @Query("SELECT a FROM ArticuloManufacturado a " +
             "WHERE (:nombre IS NULL OR a.denominacion LIKE %:nombre%) " +
             "AND (:rubroNombre IS NULL OR a.rubroArticuloManufacturado.denominacion = :rubroNombre)")
@@ -31,6 +35,7 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
             @Param("nombre") String nombre,
             @Param("rubroNombre") String rubroNombre
     );
+
 
    //Historia 9
    @Query("SELECT a FROM ArticuloManufacturado a " +
@@ -40,6 +45,7 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
            @Param("nombre") String nombre
    );
 
+
    //Historia 11
     @Query("SELECT dp.articuloManufacturado.denominacion AS nombreArticulo, dp.articuloManufacturado.precioVenta AS precio, dp.subtotal AS subtotal, dp.cantidad AS cantidad\n" +
             "            FROM DetallePedido dp")
@@ -48,7 +54,6 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     ) ;
 }
 
-   //historia
 
 
 

@@ -17,11 +17,15 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
     @Autowired
     private ArticuloManufacturadoRepository articuloManufacturadoRepository;
 
+
+    //Constructor
     public ArticuloManufacturadoServiceImpl(BaseRepository<ArticuloManufacturado, Long> baseRepository, ArticuloManufacturadoRepository articuloManufacturadoRepository) {
         super(baseRepository);
         this.articuloManufacturadoRepository = articuloManufacturadoRepository;
     }
 
+
+    //Historia 22
     @Override
     public List<ArticuloManufacturado> findProductosMasPedidosEnRangoFechas (@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
         try {
@@ -32,6 +36,8 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
+
+    //Historia 22
     @Override
     public List<ArticuloManufacturado> buscarPorNombreYRubro(String nombre, String rubroNombre) throws Exception {
         try {
@@ -42,6 +48,7 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
+
     //Historia 11
     public List<Object[]> consultarDenominacionPrecioSubtotalCantidad() throws Exception{
         try {
@@ -51,6 +58,9 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
             throw new Exception(e.getMessage());
         }
     }
+
+
+    //Historia 22
     @Override
     public List<ArticuloManufacturado> buscarProductoPorNombre(String nombre) throws Exception {
         try {

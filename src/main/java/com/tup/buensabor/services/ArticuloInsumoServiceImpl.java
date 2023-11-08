@@ -28,11 +28,13 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
         return articuloInsumoRepository.findArticulosInsumoCercaStockMinimo();
     }
 
+
     //Historia 22
     @Override
     public List<ArticuloInsumo> findAllArticuloInsumoWithRubro() {
         return articuloInsumoRepository.findAllArticuloInsumoWithRubro();
     }
+
 
     //Constructor
     public ArticuloInsumoServiceImpl(BaseRepository<ArticuloInsumo, Long> baseRepository, ArticuloInsumoRepository articuloInsumoRepository) {
