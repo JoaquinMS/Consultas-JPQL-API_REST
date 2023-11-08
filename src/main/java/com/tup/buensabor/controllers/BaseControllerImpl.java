@@ -8,9 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceImpl<E,Long>> implements BaseController<E, Long>{
+
+
+    //Implementamos cada metodo CRUD de forma generica:
+
+
     @Autowired
     protected S servicio;
 
+    //Busca y trae
     @GetMapping("")
     public ResponseEntity<?> getAll() {
         try {
@@ -20,8 +26,7 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
         }
     }
 
-
-
+    //Busca y trae por id
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id) {
         try {
@@ -31,6 +36,7 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
         }
     }
 
+    //Crea
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody E entity){
         try {
@@ -40,6 +46,7 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
         }
     }
 
+    //Actualiza
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id,@RequestBody E entity){
         try {
@@ -49,6 +56,7 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
         }
     }
 
+    //Borra
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {

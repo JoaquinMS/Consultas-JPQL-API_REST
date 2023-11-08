@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/rubrosarticulo")
+@RequestMapping(path = "api/rubrosarticulo")
+
 public class RubroArticuloController extends BaseControllerImpl<RubroArticulo, RubroArticuloServiceImpl>{
+
 }

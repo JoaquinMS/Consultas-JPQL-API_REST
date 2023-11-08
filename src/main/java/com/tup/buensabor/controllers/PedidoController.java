@@ -15,9 +15,11 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/pedidos")
+@RequestMapping(path = "api/pedidos")
+
 public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceImpl> {
 
+    //Consulta H27
     @GetMapping("/obtenerPedidosPorClienteYFechas")
     public ResponseEntity<?> obtenerPedidosPorClienteYFechas(
             @RequestParam Long clienteId,
@@ -37,7 +39,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
 
-    //----------Consultas H17----------//
+    //Consulta H17
     @GetMapping("/getAllPedidosPreparacion")
     public ResponseEntity<?> getAllPedidosPreparacion() {
         try {

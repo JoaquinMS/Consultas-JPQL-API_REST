@@ -16,6 +16,8 @@ import java.util.List;
 
 public class ArticuloManufacturadoController extends BaseControllerImpl<ArticuloManufacturado, ArticuloManufacturadoServiceImpl>{
 
+
+    //Historia 26
     @GetMapping("/obtenerProductosMasPedidos")
     public ResponseEntity<?> obtenerProductosMasPedidosEnRangoFechas(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
@@ -34,6 +36,8 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
         }
     }
 
+
+    //Historia 26
     @GetMapping("/obtenerProductosPorNombreYRubro")
     public ResponseEntity<?> buscarProductosPorNombreYRubro(
             @RequestParam(value = "nombre", required = false) String nombre,
@@ -52,6 +56,8 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
         }
     }
 
+
+    //Historia 9
     @GetMapping("/obtenerProductosPorNombre")
     public ResponseEntity<?> buscarProductoPorNombre(
             @RequestParam(value = "nombre", required = false) String nombre

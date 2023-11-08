@@ -11,9 +11,12 @@ import java.util.Date;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/informe")
+@RequestMapping(path = "api/informes")
+
 public class InformeMonetarioController extends BaseControllerImpl<DTOInformeMonetario, InformeMonetarioServiceImpl>{
 
+
+    //Historia 28
     @GetMapping("/getInformeMonetarioByDateRange")
     public ResponseEntity<?> getInformeMonetarioByDateRange(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
@@ -26,7 +29,5 @@ public class InformeMonetarioController extends BaseControllerImpl<DTOInformeMon
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
-
     }
-
 }

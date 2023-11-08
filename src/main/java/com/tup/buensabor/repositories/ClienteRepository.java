@@ -10,6 +10,10 @@ import java.util.List;
 
 @Repository
 public interface ClienteRepository extends BaseRepository<Cliente, Long>{
+
+
+
+    //Historia 27
     @Query("SELECT p.cliente FROM Pedido p WHERE p.fechaPedido BETWEEN :fechaInicio AND :fechaFin " +
             "GROUP BY p.cliente " +
             "ORDER BY COUNT(p) DESC")
@@ -18,6 +22,7 @@ public interface ClienteRepository extends BaseRepository<Cliente, Long>{
             @Param("fechaFin") Date fechaFin
     );
 
+
     //Historia 2
     @Query("SELECT c FROM Cliente c " +
             "WHERE c.email = :email " +
@@ -25,6 +30,5 @@ public interface ClienteRepository extends BaseRepository<Cliente, Long>{
     Cliente findClientePorCorreoYContraseña(
             @Param("email") String email,
             @Param("password") String password);
-
 }
 

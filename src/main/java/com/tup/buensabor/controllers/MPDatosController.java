@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/MPdatos")
+@RequestMapping(path = "api/MPdatos")
+
 public class MPDatosController extends BaseControllerImpl<MPDatos, MPDatosServiceImpl>{
+
 }

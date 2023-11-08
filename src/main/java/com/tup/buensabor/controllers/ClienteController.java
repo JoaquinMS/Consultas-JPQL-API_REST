@@ -12,9 +12,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/clientes")
+@RequestMapping(path = "api/clientes")
+
 public class ClienteController extends BaseControllerImpl<Cliente, ClienteServiceImpl> {
 
+
+    //Historia 27
     @GetMapping("/obtenerClientesConMasPedidos")
     public ResponseEntity<?> obtenerClientesConMasPedidosEnRangoFechas(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
@@ -30,11 +33,11 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
-
         }
-
     }
 
+
+    //Historia 2
     @GetMapping("/obtenerClientePorCorreoYContraseña")
     public ResponseEntity<?> obtenerClientesConMasPedidosEnRangoFechas(
             @RequestParam String email,
@@ -51,7 +54,5 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
-
     }
-
 }
