@@ -99,6 +99,22 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+    //----------Consultas H16----------//
+    @GetMapping("/enDelivery")
+    public ResponseEntity<?> obtenerPedidosEnDelivery() {
+        try {
+            List<Pedido> pedidos = servicio.obtenerPedidosEnDelivery(); // Utiliza el método de servicio adecuado
+            if (!pedidos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidos);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontraron pedidos en estado 'EN_CAMINO'.\"}");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+
 
 
 

@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 import java.util.List;
 
-public interface PedidoService extends BaseService<Pedido, Long>{
+public interface PedidoService extends BaseService<Pedido, Long> {
 
     List<Pedido> findPedidosByClienteAndFecha(Long clienteId, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception;
 
@@ -23,6 +23,15 @@ public interface PedidoService extends BaseService<Pedido, Long>{
 
     //--------------------------------//
     Pedido buscarPedidoPorId(Long pedidoId) throws Exception;
+
+
+
+    //----------Consultas H16----------//
+
+    List<Pedido> obtenerPedidosEnDelivery() throws Exception;
+
+
+
 
 
 

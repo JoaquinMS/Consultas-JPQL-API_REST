@@ -41,5 +41,10 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
     Pedido buscarPedidoPorId(@Param("pedidoId") Long pedidoId);
 
 
+    //----------Consultas H16----------//
+    @Query("SELECT p FROM Pedido p WHERE p.estado = 'EN_CAMINO'")
+    List<Pedido> obtenerPedidosEnDelivery();
+
+
 }
 
