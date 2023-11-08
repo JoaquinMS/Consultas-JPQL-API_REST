@@ -1,6 +1,7 @@
 package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
+import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.enums.EstadoPedido;
 import com.tup.buensabor.services.PedidoServiceImpl;
@@ -115,6 +116,24 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
+//---------------------------------//
+
+    @GetMapping("/obtenerDetallePorID")
+    public ResponseEntity<?> obtenerDetallePedido(@RequestParam("pedidoId") Long pedidoId) {
+        try {
+            // Llama a un método en el servicio para obtener los detalles del pedido según su ID
+            DetallePedido pedidoDetalle = servicio.obtenerDetallePedido(pedidoId);
+
+            if (pedidoDetalle == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"No se encontró un detalle para el pedido con ID " + pedidoId + ".\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.OK).body(pedidoDetalle);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
 
 
 

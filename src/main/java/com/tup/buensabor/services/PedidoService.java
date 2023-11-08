@@ -29,6 +29,8 @@ public interface PedidoService extends BaseService<Pedido, Long> {
     //----------Consultas H16----------//
 
     List<Pedido> obtenerPedidosEnDelivery() throws Exception;
+    //---------------------------------//
+    DetallePedido obtenerDetallePedido(Long pedidoId) throws Exception;
 
 
 

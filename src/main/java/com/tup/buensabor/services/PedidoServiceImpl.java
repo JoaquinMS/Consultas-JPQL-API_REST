@@ -93,6 +93,19 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         }
     }
 
+    //---------------------------------//
+    @Override
+    public DetallePedido obtenerDetallePedido(Long pedidoId) throws Exception {
+        try {
+            // Llama a una consulta personalizada en el repositorio para obtener el detalle del pedido según su ID
+            DetallePedido pedidoDetalle = pedidoRepository.obtenerDetallePedido(pedidoId);
+
+            return pedidoDetalle;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
 
 
 }
