@@ -18,7 +18,16 @@ public class RubroArticuloServiceImpl extends BaseServiceImpl<RubroArticulo, Lon
         super(baseRepository);
         this.rubroarticuloRepository = rubroarticuloRepository;
     }
-    
+
+    @Override
+    public List<RubroArticulo> obtenerRubrosConEstado() throws Exception{
+        try {
+            List<RubroArticulo> rubroArticulos = rubroarticuloRepository.obtenerRubrosConEstado();
+            return rubroArticulos;
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
 
 

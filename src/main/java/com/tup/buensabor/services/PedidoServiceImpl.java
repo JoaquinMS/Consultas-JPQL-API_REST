@@ -35,7 +35,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     }
 
 
-    //----------Consultas H17----------//
+    //historia 17
     @Override
     public List<Pedido> getAllPedidosPreparacion() throws Exception {
         try {
@@ -44,12 +44,11 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-
-
-
     }
 
-    //----------Consultas H14----------//
+
+
+    //historia 14
 
     @Override
     public List<Pedido> obtenerTodosLosPedidos() throws Exception {
@@ -61,7 +60,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         }
     }
 
-    //--------------------------------//
+    //historia 14
     @Override
     public List<Pedido> obtenerPedidosPorEstado(EstadoPedido estado) throws Exception {
         try {
@@ -71,7 +70,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
-    //--------------------------------//
+    //historia 14
     @Override
     public Pedido buscarPedidoPorId(Long pedidoId) throws Exception {
         try {
@@ -82,7 +81,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         }
     }
 
-//----------Consultas H16----------//
+//historia 16
 
     @Override
     public List<Pedido> obtenerPedidosEnDelivery() throws Exception {
@@ -94,7 +93,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         }
     }
 
-    //---------------------------------//
+    //historia 16
     @Override
     public DetallePedido obtenerDetallePedido(Long pedidoId) throws Exception {
         try {

@@ -2,6 +2,7 @@ package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.Base;
 import com.tup.buensabor.entities.DetallePedido;
+import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.DetallePedidoRepository;
 import jakarta.transaction.Transactional;
@@ -24,6 +25,16 @@ import java.util.Optional;
             this.detallePedidoRepository = detallePedidoRepository;
         }
 
+        //Historia 17
+        @Override
+        public List<DetallePedido> obtenerDetallesPedidosConRecetas() throws Exception {
+            try {
+                List<DetallePedido> detallePedidos = detallePedidoRepository.obtenerDetallesPedidosConRecetas();
+                return detallePedidos;
+            } catch (Exception e){
+                throw new Exception(e.getMessage());
+            }
+        }
 
     }
 

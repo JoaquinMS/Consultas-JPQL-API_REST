@@ -48,5 +48,7 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     ) ;
 }
 
+   //historia
+
 
 

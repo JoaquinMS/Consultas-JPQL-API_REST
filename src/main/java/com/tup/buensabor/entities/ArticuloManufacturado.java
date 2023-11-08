@@ -30,6 +30,10 @@ public class ArticuloManufacturado extends Base {
     private String descripcion;
 
     @NotNull
+    @Column(length = 1500)
+    private String receta;
+
+    @NotNull
     @Column(name = "tiempo_estimado_cocina")
     private Integer tiempoEstimadoCocina;
 
@@ -42,6 +46,8 @@ public class ArticuloManufacturado extends Base {
 
     @Column(length = 500, name = "url_imagen")
     private String urlImagen;
+
+
 
     @NotNull
     @Column(name = "fecha_alta")

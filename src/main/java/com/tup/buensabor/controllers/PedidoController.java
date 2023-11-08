@@ -56,7 +56,8 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
-    //----------Consultas H14----------//
+
+    //Historia 14
     @GetMapping("/obtenerTodosLosPedidos")
     public ResponseEntity<?> obtenerTodosLosPedidos() {
         try {
@@ -71,8 +72,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
-    //------------------------------//
+    //Historia 14
     @GetMapping("/pedidoPorEstado")
     public ResponseEntity<?> obtenerPedidosPorEstado(@RequestParam("estado") EstadoPedido estado) {
         try {
@@ -88,7 +88,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
-    //------------------------------//
+    //Historia 14
     @GetMapping("/buscarPedidoPorId")
     public ResponseEntity<?> buscarPedidoPorId(@RequestParam Long id) {
         try {
@@ -103,7 +103,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    //----------Consultas H16----------//
+    //Historia 16
     @GetMapping("/enDelivery")
     public ResponseEntity<?> obtenerPedidosEnDelivery() {
         try {
@@ -119,7 +119,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
-//---------------------------------//
+    //Historia 16
 
     @GetMapping("/obtenerDetallePorID")
     public ResponseEntity<?> obtenerDetallePedido(@RequestParam("pedidoId") Long pedidoId) {
