@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class RubroArticuloManufacturadoServiceImpl extends BaseServiceImpl<RubroArticuloManufacturado, Long> implements RubroArticuloManufacturadoService{
@@ -15,8 +17,17 @@ public class RubroArticuloManufacturadoServiceImpl extends BaseServiceImpl<Rubro
     private RubroArticuloManufacturadoRepository rubroArticuloManufacturadoRepository;
 
 
+    //Historia 21
+    public List<RubroArticuloManufacturado> obtenerRubrosConEstado () {
+        return rubroArticuloManufacturadoRepository.obtenerRubrosConEstado();
+    }
+
+
+    //Constructor
     public RubroArticuloManufacturadoServiceImpl(BaseRepository<RubroArticuloManufacturado, Long> baseRepository, RubroArticuloManufacturadoRepository rubroArticuloManufacturadoRepository) {
         super(baseRepository);
         this.rubroArticuloManufacturadoRepository = rubroArticuloManufacturadoRepository;
     }
+
+
 }
