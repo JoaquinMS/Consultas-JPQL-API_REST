@@ -36,5 +36,10 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
     @Query("SELECT p FROM Pedido p WHERE p.estado = :estado")
     List<Pedido> obtenerPedidosPorEstado(@Param("estado") EstadoPedido estado);
 
+    //---------------------------------//
+    @Query("SELECT p FROM Pedido p WHERE p.id = :pedidoId")
+    Pedido buscarPedidoPorId(@Param("pedidoId") Long pedidoId);
+
+
 }
 

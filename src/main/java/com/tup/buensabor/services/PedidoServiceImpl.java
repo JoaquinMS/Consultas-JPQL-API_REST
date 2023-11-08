@@ -53,7 +53,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     @Override
     public List<Pedido> obtenerTodosLosPedidos() throws Exception {
         try {
-            List<Pedido> pedidos = pedidoRepository.obtenerTodosLosPedidos(); // Llama a la consulta en el repositorio
+            List<Pedido> pedidos = pedidoRepository.obtenerTodosLosPedidos();
             return pedidos;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -64,8 +64,18 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     @Override
     public List<Pedido> obtenerPedidosPorEstado(EstadoPedido estado) throws Exception {
         try {
-            List<Pedido> pedidos = pedidoRepository.obtenerPedidosPorEstado(estado); // Llama a la consulta en el repositorio
+            List<Pedido> pedidos = pedidoRepository.obtenerPedidosPorEstado(estado);
             return pedidos;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+    //--------------------------------//
+    @Override
+    public Pedido buscarPedidoPorId(Long pedidoId) throws Exception {
+        try {
+            Pedido pedido = pedidoRepository.buscarPedidoPorId(pedidoId);
+            return pedido;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
