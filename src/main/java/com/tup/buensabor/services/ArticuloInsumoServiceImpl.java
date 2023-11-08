@@ -16,18 +16,23 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo, L
     private ArticuloInsumoRepository articuloInsumoRepository;
 
 
-    //Consulta H25
+    //Historia 25
     public List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo() {
         return articuloInsumoRepository.findArticulosInsumoBajoStockMinimo();
     }
 
 
-    //Consulta H25
+    //Historia 25
     @Override
     public List<ArticuloInsumo> findArticulosInsumoCercaStockMinimo() {
         return articuloInsumoRepository.findArticulosInsumoCercaStockMinimo();
     }
 
+    //Historia 22
+    @Override
+    public List<ArticuloInsumo> findAllArticuloInsumoWithRubro() {
+        return articuloInsumoRepository.findAllArticuloInsumoWithRubro();
+    }
 
     //Constructor
     public ArticuloInsumoServiceImpl(BaseRepository<ArticuloInsumo, Long> baseRepository, ArticuloInsumoRepository articuloInsumoRepository) {

@@ -17,16 +17,23 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     private ArticuloInsumoServiceImpl articuloInsumoServiceImpl;
 
 
-    //Consulta H25
+    //Historia 25
     @GetMapping("/cercastockminimo")
     public List<ArticuloInsumo> getArticulosInsumoCercaStockMinimo() {
         return articuloInsumoServiceImpl.findArticulosInsumoCercaStockMinimo();
     }
 
 
-    //Consulta H25
+    //Historia 25
     @GetMapping("/bajostockminimo")
     public List<ArticuloInsumo> getArticulosInsumoBajoStockMinimo() {
         return articuloInsumoServiceImpl.findArticulosInsumoBajoStockMinimo();
+    }
+
+
+    //Historia 22
+    @GetMapping("/ingredientesconrubro")
+    public List<ArticuloInsumo> findAllArticuloInsumoWithRubro() {
+        return articuloInsumoServiceImpl.findAllArticuloInsumoWithRubro();
     }
 }

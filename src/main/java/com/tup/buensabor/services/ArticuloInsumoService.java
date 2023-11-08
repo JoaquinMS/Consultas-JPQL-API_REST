@@ -6,13 +6,16 @@ import java.util.List;
 public interface ArticuloInsumoService extends BaseService<ArticuloInsumo,Long>{
 
 
-    //Consulta H25
+    //Historia 25
     List<ArticuloInsumo> findArticulosInsumoBajoStockMinimo();
 
 
-    //Consulta H25
+    //Historia 25
     List<ArticuloInsumo> findArticulosInsumoCercaStockMinimo();
 
+
+    //Historia 22
+    List<ArticuloInsumo> findAllArticuloInsumoWithRubro();
 
 
 }
