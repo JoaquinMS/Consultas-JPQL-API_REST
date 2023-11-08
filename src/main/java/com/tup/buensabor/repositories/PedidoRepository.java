@@ -3,6 +3,7 @@ package com.tup.buensabor.repositories;
 import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.enums.EstadoPedido;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -64,5 +65,9 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
     //Historia 16
     @Query("SELECT dp, dp.pedido.cliente.nombre, dp.pedido.cliente.apellido, dp.pedido.cliente.telefono, dp.pedido.domicilioEntrega.calle FROM DetallePedido dp WHERE dp.pedido.id = :pedidoId")
     DetallePedido obtenerDetallePedido(@Param("pedidoId") Long pedidoId);
+
+    @Modifying
+    @Query("UPDATE Pedido p SET p.estado = 'ENTREGADO' WHERE p.id = :pedidoId")
+    void asignarEstadoEntregado(@Param("pedidoId") Long pedidoId);
 }
 
