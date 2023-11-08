@@ -19,6 +19,7 @@ public class RubroArticuloServiceImpl extends BaseServiceImpl<RubroArticulo, Lon
         this.rubroarticuloRepository = rubroarticuloRepository;
     }
 
+    //Historia 20
     @Override
     public List<RubroArticulo> obtenerRubrosConEstado() throws Exception{
         try {

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface RubroArticuloRepository extends BaseRepository<RubroArticulo, Long>{
-    //Historia 22
+    //Historia 20
     @Query("SELECT r FROM RubroArticulo r")
     List<RubroArticulo> obtenerRubrosConEstado();
 

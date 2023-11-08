@@ -7,6 +7,7 @@ import java.util.List;
 
 
 public interface RubroArticuloService extends BaseService<RubroArticulo, Long>{
+    //Historia 20
     List<RubroArticulo> obtenerRubrosConEstado() throws Exception;
 }
 

@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping(path = "api/rubrosarticulo")
 
 public class RubroArticuloController extends BaseControllerImpl<RubroArticulo, RubroArticuloServiceImpl>{
-    //Historia 22
+    //Historia 20
     @GetMapping("/obtenerRubrosConEstado")
     public ResponseEntity<?> obtenerRubrosConEstado() {
         try {
