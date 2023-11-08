@@ -22,6 +22,13 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long>{
             @Param("fechaInicio") Date fechaInicio,
             @Param("fechaFin") Date fechaFin);
 
+    //Historia 28
+    @Query("SELECT SUM(p.total) AS ingresos, " +
+            "SUM(p.totalCosto) AS costos, " +
+            "SUM(p.total - p.totalCosto) AS ganancias " +
+            "FROM Pedido p WHERE p.fechaPedido " +
+            "BETWEEN :fechaInicio AND :fechaFin")
+    List<Object[]> getInformeMonetarioByDateRange(@Param("fechaInicio") Date fechaInicio, @Param("fechaFin") Date fechaFin);
 
     //Historia 17
     @Query(

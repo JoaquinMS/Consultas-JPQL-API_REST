@@ -32,10 +32,7 @@ public interface PedidoService extends BaseService<Pedido, Long> {
     //---------------------------------//
     DetallePedido obtenerDetallePedido(Long pedidoId) throws Exception;
 
-
-
-
-
+    DTOInformeMonetario getInformeMonetarioByDateRange(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception;
 
 }
 

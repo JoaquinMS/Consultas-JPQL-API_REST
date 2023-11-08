@@ -1,6 +1,7 @@
 package com.tup.buensabor.controllers;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
+import com.tup.buensabor.entities.DTOInformeMonetario;
 import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.enums.EstadoPedido;
@@ -137,7 +138,19 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
-
-
+    //Historia 28
+    @GetMapping("/getInformeMonetarioByDateRange")
+    public ResponseEntity<?> getInformeMonetarioByDateRange(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin
+    ) {
+        try {
+            DTOInformeMonetario informe = servicio.getInformeMonetarioByDateRange(fechaInicio, fechaFin);
+            return ResponseEntity.status(HttpStatus.OK).body(informe);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
 
 }
