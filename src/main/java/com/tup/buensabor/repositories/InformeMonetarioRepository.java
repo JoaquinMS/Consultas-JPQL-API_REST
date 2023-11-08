@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface InformeMonetarioRepository extends BaseRepository<DTOInformeMonetario, Long>{
 
+
+    //Historia 28
     @Query("SELECT SUM(p.total) AS ingresos, " +
             "SUM(p.totalCosto) AS costos, " +
             "SUM(p.total - p.totalCosto) AS ganancias " +

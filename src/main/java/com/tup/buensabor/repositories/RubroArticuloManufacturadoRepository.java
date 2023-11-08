@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RubroArticuloManufacturadoRepository extends BaseRepository<RubroArticuloManufacturado, Long>{
-
 }

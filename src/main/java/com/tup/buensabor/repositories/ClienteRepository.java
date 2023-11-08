@@ -4,13 +4,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.tup.buensabor.entities.Cliente;
 
-
 import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface ClienteRepository extends BaseRepository<Cliente, Long>{
-
 
 
     //Historia 27

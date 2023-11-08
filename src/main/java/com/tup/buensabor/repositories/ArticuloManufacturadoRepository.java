@@ -8,9 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-
 public interface ArticuloManufacturadoRepository extends BaseRepository<ArticuloManufacturado, Long>{
-
 
 
    //Historia 26
