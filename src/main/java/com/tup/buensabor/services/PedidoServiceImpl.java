@@ -105,6 +105,14 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
+    @Override
+    public void asignarEstadoEntregado(Long pedidoId) throws Exception {
+        try {
+            pedidoRepository.asignarEstadoEntregado(pedidoId);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 
     public DTOInformeMonetario getInformeMonetarioByDateRange(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin) throws Exception {
         List<Object[]> results = pedidoRepository.getInformeMonetarioByDateRange(fechaInicio, fechaFin);
