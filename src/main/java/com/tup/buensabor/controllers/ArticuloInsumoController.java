@@ -36,4 +36,7 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     public List<ArticuloInsumo> findAllArticuloInsumoWithRubro() {
         return articuloInsumoServiceImpl.findAllArticuloInsumoWithRubro();
     }
+    //comentario de prueba
+    int numero = 15;
+    
 }
