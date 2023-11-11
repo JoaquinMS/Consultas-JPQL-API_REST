@@ -105,7 +105,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             throw new Exception(e.getMessage());
         }
     }
-    @Override
+
     public void asignarEstadoEntregado(Long pedidoId) throws Exception {
         try {
             pedidoRepository.asignarEstadoEntregado(pedidoId);
