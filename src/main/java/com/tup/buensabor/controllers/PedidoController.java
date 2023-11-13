@@ -1,7 +1,6 @@
 package com.tup.buensabor.controllers;
 
-import com.tup.buensabor.entities.ArticuloInsumo;
-import com.tup.buensabor.entities.DTOInformeMonetario;
+import com.tup.buensabor.dto.DTOInformeMonetario;
 import com.tup.buensabor.entities.DetallePedido;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.enums.EstadoPedido;

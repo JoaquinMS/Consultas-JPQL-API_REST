@@ -1,7 +1,7 @@
 package com.tup.buensabor.services;
 
 
-import com.tup.buensabor.entities.DTOIngresoIngredientes;
+import com.tup.buensabor.dto.DTOIngresoIngredientes;
 import com.tup.buensabor.entities.DetalleArticuloManufacturado;
 
 

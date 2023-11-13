@@ -44,8 +44,6 @@ public class Factura extends Base {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaBaja;
 
-
-
     @OneToOne
     @JoinColumn(name = "id_mp_datos")
     private MPDatos mpDatos;
