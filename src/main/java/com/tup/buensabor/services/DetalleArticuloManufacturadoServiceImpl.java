@@ -1,12 +1,10 @@
 package com.tup.buensabor.services;
 
 
-import com.tup.buensabor.entities.DTOIngresoIngredientes;
+import com.tup.buensabor.dto.DTOIngresoIngredientes;
 import com.tup.buensabor.entities.DetalleArticuloManufacturado;
-import com.tup.buensabor.entities.DetalleFactura;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.DetalleArticuloManufacturadoRepository;
-import com.tup.buensabor.repositories.DetalleFacturaRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

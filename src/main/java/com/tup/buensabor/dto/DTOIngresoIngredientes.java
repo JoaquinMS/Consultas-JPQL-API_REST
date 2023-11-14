@@ -1,4 +1,4 @@
-package com.tup.buensabor.entities;
+package com.tup.buensabor.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Data
 @Builder
-public class DTOInformeMonetario {
 
-    private BigDecimal ingresos;
-    private BigDecimal costos;
-    private BigDecimal ganancias;
+public class DTOIngresoIngredientes {
 
+    private BigDecimal costoTotal;
+    private String nombreArticuloManufacturado;
 }
