@@ -39,15 +39,11 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
 
    //Historia 9
    @Query("SELECT a FROM ArticuloManufacturado a " +
-           "WHERE :nombre IS NULL OR a.denominacion LIKE %:nombre% ")
+           "WHERE :nombre IS NULL OR a.denominacion LIKE %:nombre% " +
+           "GROUP BY a.rubroArticuloManufacturado, a.id")
    List<ArticuloManufacturado> buscarProductoPorNombre(
            @Param("nombre") String nombre
    );
-
-    @Query("SELECT a FROM ArticuloManufacturado a " +
-            "GROUP BY a.rubroArticuloManufacturado, a.id")
-    List<ArticuloManufacturado> mostrarProductosPaginaPrincipal();
-
 
    //Historia 11
     @Query("SELECT dp.articuloManufacturado.denominacion AS nombreArticulo, dp.articuloManufacturado.precioVenta AS precio, dp.subtotal AS subtotal, dp.cantidad AS cantidad\n" +

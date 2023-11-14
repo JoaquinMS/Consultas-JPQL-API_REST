@@ -526,6 +526,7 @@ public class BuensaborApplication {
 					.unidadMedida(unidadMedida)
 					.rubroArticulo(rubroArticulo3)
 					.fechaAlta(new Date(123, 11, 5))
+					.fechaBaja(new Date(123, 11, 10))
 					.build();
 
 
@@ -614,6 +615,7 @@ public class BuensaborApplication {
 					.unidadMedida(unidadMedida)
 					.rubroArticulo(rubroArticulo2)
 					.fechaAlta(new Date(123, 11, 5))
+					.fechaBaja(new Date(123, 11, 15))
 					.build();
 			articuloInsumoRepository.save(articuloInsumoMorrones);
 

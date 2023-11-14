@@ -71,13 +71,4 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
         }
     }
 
-    public List<ArticuloManufacturado> mostrarProductosPaginaPrincipal() throws Exception{
-        try {
-            List<ArticuloManufacturado>  articuloManufacturado =   articuloManufacturadoRepository.mostrarProductosPaginaPrincipal();
-            return articuloManufacturado;
-        }catch(Exception e){
-            throw new Exception(e.getMessage());
-        }
-    }
-
 }
