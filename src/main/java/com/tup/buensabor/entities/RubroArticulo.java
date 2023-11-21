@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class RubroArticulo extends Base {
     private RubroArticulo rubroPadre;
 
     @OneToMany(mappedBy = "rubroPadre")
-    private List<RubroArticulo> subRubros;
+    private List<RubroArticulo> subRubros = new ArrayList<>();
 
     @NotNull
     private String denominacion;

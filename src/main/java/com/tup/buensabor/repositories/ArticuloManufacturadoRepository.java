@@ -45,7 +45,6 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
            @Param("nombre") String nombre
    );
 
-
    //Historia 11
     @Query("SELECT dp.articuloManufacturado.denominacion AS nombreArticulo, dp.articuloManufacturado.precioVenta AS precio, dp.subtotal AS subtotal, dp.cantidad AS cantidad\n" +
             "            FROM DetallePedido dp")

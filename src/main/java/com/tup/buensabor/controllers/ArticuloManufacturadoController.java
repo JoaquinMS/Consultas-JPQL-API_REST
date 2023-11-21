@@ -88,4 +88,5 @@ public class ArticuloManufacturadoController extends BaseControllerImpl<Articulo
                     .body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+
 }
