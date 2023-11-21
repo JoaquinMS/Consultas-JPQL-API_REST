@@ -25,7 +25,7 @@ public class AuthService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())); //springsecurity
         UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
         String token=jwtService.getToken(user);
-        return AuthResponse.builder() //DTO
+        return AuthResponse.builder()
                 .token(token)
                 .build();
 
@@ -38,7 +38,7 @@ public class AuthService {
                 .firstname(request.getFirstname())
                 .lastname(request.lastname)
                 .country(request.getCountry())
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .build();
 
         userRepository.save(user);
