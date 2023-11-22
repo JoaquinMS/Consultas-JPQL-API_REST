@@ -53,11 +53,11 @@ public class SecurityConfig {
 
                                         .requestMatchers(new AntPathRequestMatcher("/auth/login")).hasAnyAuthority("ADMIN","USER")
                                         .requestMatchers(new AntPathRequestMatcher("/api/clientes/**")).hasAnyAuthority("ADMIN")
-                                        .requestMatchers(new AntPathRequestMatcher("/api/domicilio/**")).hasAnyAuthority("ADMIN")
-                                        .requestMatchers(new AntPathRequestMatcher("/api/rubroArticulo/**")).hasAnyAuthority("ADMIN")
-                                        .requestMatchers(new AntPathRequestMatcher("/api/rubroArticuloManufacturado/**")).hasAnyAuthority("ADMIN")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/domicilios/**")).hasAnyAuthority("ADMIN")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/rubrosarticulo/**")).hasAnyAuthority("ADMIN")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/rubrosarticulomanufacturados/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/facturas/**")).hasAnyAuthority("ADMIN")
-                                        .requestMatchers(new AntPathRequestMatcher("/api/ArticuloManufacturado/**")).hasAnyAuthority("ADMIN")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/articulosmanufacturado/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/articulosinsumo/**")).hasAnyAuthority("ADMIN")
 
                 )
