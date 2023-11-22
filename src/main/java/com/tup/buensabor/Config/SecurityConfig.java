@@ -55,6 +55,7 @@ public class SecurityConfig {
                                         .requestMatchers(new AntPathRequestMatcher("/api/clientes/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/domicilios/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/rubrosarticulo/**")).hasAnyAuthority("ADMIN")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/unidadMedida/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/rubrosarticulomanufacturados/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/facturas/**")).hasAnyAuthority("ADMIN")
                                         .requestMatchers(new AntPathRequestMatcher("/api/articulosmanufacturado/**")).hasAnyAuthority("ADMIN")
